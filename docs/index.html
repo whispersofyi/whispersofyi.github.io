@@ -4,15 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Whispers of YI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Crimson+Text:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Merriweather', serif;
+      font-family: 'Crimson Text', serif;
       line-height: 1.7;
-      color: #222;
-      background: #fff;
+      color: #1a1a1a;
+      background: #fafafa url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+      background-size: 400px;
     }
     header {
       text-align: center;
@@ -20,112 +21,125 @@
     }
     header h1 {
       font-family: 'Noto Serif SC', serif;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       font-weight: 700;
       margin: 0;
       letter-spacing: 1px;
     }
     header p {
       font-size: 1.2rem;
-      color: #555;
-      margin-top: 0.5rem;
+      color: #444;
+      margin-top: 0.6rem;
       font-style: italic;
     }
     main {
-      max-width: 800px;
+      max-width: 820px;
       margin: 0 auto;
       padding: 0 1.5rem 4rem;
     }
     section {
       margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.7);
+      border-radius: 6px;
+      padding: 1.5rem;
     }
     section h2 {
       font-size: 1.5rem;
       font-weight: 700;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 0.3rem;
+      margin-top: 0;
       margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+    section h2::after {
+      content: "";
+      display: block;
+      height: 2px;
+      background: linear-gradient(to right, #000, transparent);
+      margin-top: 4px;
     }
     a {
       color: #000;
       font-weight: 600;
       text-decoration: none;
-      border-bottom: 1px dotted #999;
+      border-bottom: 1px dotted #666;
       transition: color 0.2s;
     }
     a:hover {
-      color: #555;
-      border-bottom-color: #555;
+      color: #444;
+      border-bottom-color: #444;
+    }
+    ul {
+      padding-left: 1.2rem;
     }
     footer {
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
-      color: #777;
-      border-top: 1px solid #eee;
+      color: #666;
+      border-top: 1px solid #ddd;
+      background: rgba(255,255,255,0.8);
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Whispers of YI</h1>
-    <p>A quiet voice in the scrollstorm — reflections, elemental whispers, and tools to navigate life’s flow.</p>
+    <p>Ink fades, but whispers remain — elemental reflections for the quiet traveler.</p>
   </header>
 
   <main>
     <section>
       <h2>🌿 What is Whispers of YI?</h2>
-      <p>Whispers of YI is not a school, not a doctrine — but a space.<br/>
-      Here, BaZi is approached not as rigid calculation, but as a branch of Dao:<br/>
-      a mirror for life’s seasons, elements, and quiet truths.</p>
+      <p>Not doctrine, not noise — but a pause.<br/>
+      A space where BaZi is less about charts, more about the rhythm of elements and the breath of seasons.</p>
     </section>
 
     <section>
       <h2>✨ What You’ll Find</h2>
       <ul>
         <li><strong>Free Guide</strong> → (coming soon) → <a href="docs/a-free-companion-for-the-journey.pdf">A Free Companion for the Journey (PDF)</a></li>
-        <li><strong>BaZi Calculator</strong> (coming soon) → elemental pillars with time & timezone correction</li>
-        <li><strong>Reflections & Notes</strong> → (coming soon) → poetic fragments and meditations on the Dao of living</li>
+        <li><strong>BaZi Calculator</strong> → (work in progress) — elemental pillars with time & zone correction</li>
+        <li><strong>Reflections</strong> → whispers, short writings, elemental meditations</li>
       </ul>
     </section>
 
     <section>
       <h2>🌌 Why This Exists</h2>
-      <p>You don’t need another guru.<br/>
-      You don’t need another textbook.<br/>
-      You only need a whisper that reminds you:<br/>
-      <em>“The flame flickers in wind, but never forgets it burns.”</em></p>
+      <p>You don’t need a guru.  
+      You don’t need more noise.  
+      Only a reminder:<br/>
+      <em>“When water is still, even the clouds bow to look in.”</em></p>
     </section>
 
     <section>
       <h2>📖 Guides</h2>
       <ul>
         <li>A Free Companion for the Journey (included here, free).</li>
-        <li>Future seasonal reflections and journals will be shared via <a href="https://whispersofyi.gumroad.com/">Gumroad</a> (optional support).</li>
+        <li>Seasonal notes and journals (future) on <a href="https://whispersofyi.gumroad.com/">Gumroad</a>.</li>
       </ul>
     </section>
 
     <section>
       <h2>🛠️ License</h2>
-      <p><strong>Code & calculator</strong> → MIT License (see <a href="LICENSE">LICENSE</a>)<br/>
-      <strong>Written guides (PDFs, reflections)</strong> → Creative Commons BY-NC-ND 4.0 (see <a href="LICENSE-GUIDES.md">LICENSE-GUIDES.md</a>)</p>
-      <p>This means:<br/>
-      – You’re free to share the guides.<br/>
-      – But not sell, remix, or claim them as your own.</p>
+      <p><strong>Code</strong> → MIT License (<a href="LICENSE">LICENSE</a>)<br/>
+      <strong>Writings</strong> → CC BY-NC-ND 4.0 (<a href="LICENSE-GUIDES.md">LICENSE-GUIDES.md</a>)</p>
     </section>
 
     <section>
       <h2>🌐 Where Else?</h2>
       <ul>
-        <li><a href="http://www.youtube.com/@WhispersofYI">YouTube Shorts — Whispers of YI</a></li>
+        <li><a href="http://www.youtube.com/@WhispersofYI">YouTube Shorts</a></li>
         <li><a href="https://github.com/whispersofyi">GitHub Repository</a></li>
-        <li><a href="https://share.streamlit.io">BaZi Calculator (Streamlit)</a> (coming soon)</li>
+        <li><a href="https://share.streamlit.io">BaZi Calculator (coming soon)</a></li>
       </ul>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Whispers of YI. Sit, breathe, read slowly. This space is yours too.</p>
+    <p>© 2025 Whispers of YI · A quiet space between noise</p>
   </footer>
 </body>
 </html>
