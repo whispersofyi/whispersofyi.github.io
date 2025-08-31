@@ -2,30 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Whispers of YI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #ffffff;
-      --text-color: #111111;
-      --subtle-text: #555555;
+      --bg: #fff;
+      --text: #111;
+      --subtle: #555;
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin:0; padding:0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
-      font-weight: 300;
+      color: var(--text);
+      background: var(--bg);
       line-height: 1.7;
-      color: var(--text-color);
-      background: var(--bg-color);
+      font-size: 1.25rem;
     }
-
     .hero {
       display: flex;
       flex-direction: column;
@@ -35,75 +28,55 @@
       text-align: center;
       padding: 0 2rem;
     }
-
     .hero h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Libre Bodoni', serif;
       font-size: 6rem;
       font-weight: 600;
+      line-height: 1.05;
       letter-spacing: -0.5px;
-      line-height: 1.1;
     }
-
     .hero p {
       margin-top: 2.5rem;
       font-size: 1.75rem;
       font-style: italic;
-      font-weight: 400;
-      color: var(--subtle-text);
+      color: var(--subtle);
       max-width: 800px;
     }
-
     section {
       max-width: 900px;
       margin: 10rem auto;
       padding: 0 2rem;
     }
-
     section h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Libre Bodoni', serif;
       font-size: 2.75rem;
-      margin-bottom: 2rem;
       font-weight: 600;
-      line-height: 1.3;
+      margin-bottom: 2rem;
+      line-height: 1.25;
     }
-
     section p {
       font-size: 1.25rem;
       margin-bottom: 1.75rem;
-      color: var(--subtle-text);
+      color: var(--subtle);
     }
-
     footer {
       text-align: center;
       font-size: 0.95rem;
       padding: 6rem 2rem;
       color: #888;
     }
-
     a {
       color: inherit;
       text-decoration: none;
       border-bottom: 1px solid #ccc;
       transition: border-color 0.3s;
     }
-
-    a:hover {
-      border-color: #000;
-    }
-
+    a:hover { border-color: #000; }
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 3.5rem;
-      }
-      .hero p {
-        font-size: 1.25rem;
-      }
-      section h2 {
-        font-size: 2rem;
-      }
-      section p {
-        font-size: 1.1rem;
-      }
+      .hero h1 { font-size: 3.5rem; }
+      .hero p { font-size: 1.25rem; }
+      section h2 { font-size: 2rem; }
+      section p { font-size: 1.1rem; }
     }
   </style>
 </head>
@@ -116,9 +89,7 @@
 
   <section>
     <h2>What is Whispers of YI?</h2>
-    <p>Whispers of YI is not a school, not a doctrine — but a space.  
-    Here, BaZi is approached not as rigid calculation, but as a branch of Dao:  
-    a mirror for life’s seasons, elements, and quiet truths.</p>
+    <p>Whispers of YI is not a school, not a doctrine — but a space. Here, BaZi is approached not as rigid calculation, but as a branch of Dao: a mirror for life’s seasons, elements, and quiet truths.</p>
   </section>
 
   <section>
@@ -139,18 +110,18 @@
   <section>
     <h2>Guides</h2>
     <p>A Free Companion for the Journey (included here, free).</p>
-    <p>Future seasonal reflections and journals will be shared via <a href="https://whispersofyi.gumroad.com/">Gumroad</a> (optional support).</p>
+    <p>Future seasonal reflections and journals via <a href="https://whispersofyi.gumroad.com/">Gumroad</a>.</p>
   </section>
 
   <section>
     <h2>Where Else?</h2>
     <p><a href="http://www.youtube.com/@WhispersofYI">YouTube Shorts — Whispers of YI</a></p>
-    <p><a href="https://whispersofyi.github.io/">GitHub Pages site</a></p>
+    <p><a href="https://whispersofyi.github.io/">GitHub Pages</a></p>
     <p><a href="https://share.streamlit.io">BaZi Calculator (Streamlit)</a> (coming soon)</p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Whispers of YI — Code under MIT, Guides under CC BY-NC-ND 4.0</p>
+    <p>&copy; 2025 Whispers of YI — MIT for code, CC BY-NC-ND 4.0 for guides.</p>
   </footer>
 
 </body>
