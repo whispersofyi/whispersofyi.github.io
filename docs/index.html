@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Whispers of YI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-color: #ffffff;
       --text-color: #111111;
       --subtle-text: #555555;
-      --link-color: #1a9a4d; /* strong green */
+      --link-color: #1a9a4d;
+      --accent-gray: #333333;
     }
 
     * {
@@ -20,9 +21,9 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Noto Serif', serif;
       font-weight: 300;
-      line-height: 1.7;
+      line-height: 1.8;
       color: var(--text-color);
       background: var(--bg-color);
     }
@@ -38,59 +39,134 @@
     }
 
     .hero h1 {
-      font-family: 'Inter', sans-serif;
-      font-size: 6rem;
-      font-weight: 600;
+      font-family: 'Noto Serif', serif;
+      font-size: 5.5rem;
+      font-weight: 400;
       letter-spacing: -0.5px;
       line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .subtitle {
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--subtle-text);
+      margin-bottom: 3rem;
+      letter-spacing: 0.3px;
     }
 
     .hero p {
-      margin-top: 2.5rem;
-      font-size: 1.75rem;
-      font-style: italic;
-      font-weight: 200; /* thinner line */
-      letter-spacing: 0.5px; /* optional for airy look */
+      margin-top: 2rem;
+      font-size: 1.6rem;
+      font-weight: 300;
+      letter-spacing: 0.3px;
       color: var(--subtle-text);
       max-width: 800px;
+      line-height: 1.6;
     }
 
     section {
-      max-width: 900px;
-      margin: 10rem auto;
+      max-width: 800px;
+      margin: 8rem auto;
       padding: 0 2rem;
     }
 
     section h2 {
-      font-family: 'Inter', sans-serif;
-      font-size: 2.75rem;
+      font-family: 'Noto Serif', serif;
+      font-size: 2.2rem;
       margin-bottom: 2rem;
-      font-weight: 600;
+      font-weight: 400;
       line-height: 1.3;
+      color: var(--text-color);
     }
 
     section p {
-      font-size: 1.25rem;
-      margin-bottom: 1.75rem;
+      font-size: 1.15rem;
+      margin-bottom: 1.5rem;
       color: var(--subtle-text);
+      line-height: 1.7;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .tool-card {
+      padding: 1.5rem;
+      border: 1px solid #e5e5e5;
+      background: #fafafa;
+      transition: all 0.3s ease;
+    }
+
+    .tool-card:hover {
+      background: #f5f5f5;
+      border-color: #d0d0d0;
+    }
+
+    .tool-card h3 {
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+      color: var(--text-color);
+    }
+
+    .tool-card p {
+      font-size: 1rem;
+      color: var(--subtle-text);
+      margin-bottom: 0;
+    }
+
+    .whisper {
+      text-align: center;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--subtle-text);
+      margin: 3rem 0;
+      padding: 2rem;
+      border-left: 3px solid #e5e5e5;
+      background: #fafafa;
     }
 
     footer {
       text-align: center;
       font-size: 0.95rem;
-      padding: 6rem 2rem;
+      padding: 4rem 2rem;
       color: #888;
+      border-top: 1px solid #f0f0f0;
+      margin-top: 4rem;
     }
 
     a {
       color: var(--link-color);
       text-decoration: none;
-      border-bottom: 1px solid var(--link-color);
-      transition: border-color 0.3s;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease;
     }
 
     a:hover {
-      border-color: #000;
+      border-bottom-color: var(--link-color);
+    }
+
+    .cta-section {
+      background: #f9f9f9;
+      padding: 3rem 2rem;
+      margin: 4rem -2rem;
+      text-align: center;
+      border-top: 1px solid #e5e5e5;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .cta-section h2 {
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
     }
 
     @media (max-width: 768px) {
@@ -98,13 +174,16 @@
         font-size: 3.5rem;
       }
       .hero p {
-        font-size: 1.25rem;
+        font-size: 1.3rem;
       }
       section h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
       section p {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
+      }
+      .tools-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -113,46 +192,70 @@
 
   <header class="hero">
     <h1>Whispers of YI</h1>
-    <p>A quiet voice in the scrollstorm — reflections, elemental whispers, and tools to navigate life’s flow.</p>
+    <div class="subtitle">Reflections on the quiet patterns of Dao</div>
+    <p>A space where BaZi becomes a mirror for life's seasons, elements, and the wisdom found in everyday moments.</p>
   </header>
 
   <section>
-    <h2>What is Whispers of YI?</h2>
-    <p>Whispers of YI is not a school, not a doctrine — but a space.  
-    Here, BaZi is approached not as rigid calculation, but as a branch of Dao:  
-    a mirror for life’s seasons, elements, and quiet truths.</p>
+    <h2>What Lives Here</h2>
+    <p>This is not a school of ancient wisdom, nor a library of rigid formulas. Here, the Four Pillars become companions rather than calculations, and your elemental nature reveals itself through the lens of lived experience.</p>
+    
+    <p>BaZi, in this space, is approached as a branch of Dao — a way of recognizing the natural rhythms already moving through your days, your relationships, your moments of growth and rest.</p>
   </section>
 
   <section>
-    <h2>What You’ll Find</h2>
-    <p><strong>Free Guide</strong> (coming soon) → A Free Companion for the Journey (PDF)</p>
-    <p><strong>Day Master Calculator</strong> → elemental pillars with time & timezone correction</p>
-    <p><strong>Reflections & Notes</strong> (coming soon) → poetic fragments and meditations on the Dao of living</p>
+    <h2>Tools for the Journey</h2>
+    
+    <div class="tools-grid">
+      <div class="tool-card">
+        <h3>Day Master Calculator</h3>
+        <p>Discover your elemental nature through precise solar time correction and traditional calendar boundaries. More than calculation — a doorway to self-recognition.</p>
+      </div>
+      
+      <div class="tool-card">
+        <h3>Free Companions</h3>
+        <p>Ten gentle guides exploring stillness, elements, and natural rhythms. Each one an invitation to pause and notice what's already present.</p>
+      </div>
+      
+      <div class="tool-card">
+        <h3>Day Master Reflections</h3>
+        <p>Deep companions for each of the ten elemental natures — contemplative booklets that explore how ancient wisdom lives in modern days.</p>
+      </div>
+    </div>
   </section>
+
+  <div class="whisper">
+    "The flame flickers in wind, but never forgets it burns."
+  </div>
 
   <section>
     <h2>Why This Exists</h2>
-    <p>You don’t need another guru.<br>
-    You don’t need another textbook.<br>
-    You only need a whisper that reminds you:<br>
-    <em>“The flame flickers in wind, but never forgets it burns.”</em></p>
+    <p>You don't need another guru.<br>
+    You don't need another textbook.<br>
+    You need a quiet voice that remembers:<br>
+    <em>The wisdom you seek is already walking with you.</em></p>
+    
+    <p>These tools and reflections exist to point you back to what you already know — that your life carries its own seasons, its own elements, its own perfect timing for growth and rest.</p>
+  </section>
+
+  <section class="cta-section">
+    <h2>Begin the Journey</h2>
+    <p>Start with the Day Master Calculator to discover your elemental nature, then explore the free companion guides that introduce the quiet wisdom of elements and seasons.</p>
+    
+    <p><a href="https://daymaster.streamlit.app/">Day Master Calculator</a> • <a href="https://whispersofyi.gumroad.com/">Free Guides & Booklets</a></p>
   </section>
 
   <section>
-    <h2>Guides</h2>
-    <p>A Free Companion for the Journey (included here, free).</p>
-    <p>Future seasonal reflections and journals will be shared via <a href="https://whispersofyi.gumroad.com/">Gumroad</a> (optional support).</p>
-  </section>
-
-  <section>
-    <h2>Where Else?</h2>
-    <p><a href="http://www.youtube.com/@WhispersofYI">YouTube Shorts — Whispers of YI</a></p>
-    <p><a href="https://whispersofyi.github.io/">GitHub Pages site</a></p>
-    <p><a href="https://daymaster.streamlit.app/">Day Master Calculator (Streamlit)</a></p>
+    <h2>Other Whispers</h2>
+    <p><strong>YouTube:</strong> <a href="https://www.youtube.com/@WhispersofYI">Daily reflections and elemental wisdom</a></p>
+    <p><strong>Deeper companions:</strong> <a href="https://whispersofyi.gumroad.com/">Complete Day Master series and seasonal guides</a></p>
+    <p><strong>Contact:</strong> For questions about tools or guides, reach through any of the above paths</p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Whispers of YI — Code under MIT, Guides under CC BY-NC-ND 4.0</p>
+    <p>&copy; 2025 Whispers of YI</p>
+    <p>Code under MIT License • Guides under Creative Commons</p>
+    <p><em>What is quiet is never absent</em></p>
   </footer>
 
 </body>
