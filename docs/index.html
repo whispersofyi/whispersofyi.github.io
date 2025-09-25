@@ -186,6 +186,7 @@
       display: flex;
       align-items: center;
       text-align: center;
+      min-height: 100vh !important; /* Force full height on mobile */
     }
 
     .hero-content .hero-tagline {
@@ -246,6 +247,9 @@
     /* Features Section - All 3 in a row */
     #features {
       background: var(--bg-secondary);
+      min-height: 100vh; /* Ensure full height */
+      display: flex;
+      align-items: center;
     }
 
     .section-header {
@@ -325,6 +329,9 @@
     /* About Section - Enlarged Yin Yang */
     #about {
       background: var(--bg-primary);
+      min-height: 100vh; /* Ensure full height */
+      display: flex;
+      align-items: center;
     }
 
     .about-content {
@@ -371,6 +378,7 @@
       text-align: center;
       display: flex;
       align-items: center;
+      min-height: 100vh; /* Ensure full height */
     }
 
     .cta-content h2 {
@@ -483,17 +491,25 @@
 
     @media (max-width: 768px) {
       section {
-        padding: 6rem 1rem 2rem;
-        min-height: auto;
+        padding: 6rem 1rem 3rem; /* Increased bottom padding */
+        min-height: 100vh !important; /* Force full height on all sections */
+        display: flex !important;
+        align-items: center !important;
+      }
+      
+      #hero {
+        padding: 8rem 1rem 3rem; /* Extra top padding for hero */
       }
       
       .hero-content .hero-tagline {
         font-size: 2.2rem;
         line-height: 1.3;
+        margin-bottom: 1.5rem;
       }
       
       .hero-content p {
         font-size: 1.1rem;
+        margin-bottom: 3rem;
       }
       
       .section-header h2 {
@@ -514,12 +530,14 @@
       
       .feature-card {
         padding: 2.5rem 2rem;
+        margin-bottom: 1rem;
       }
       
       .dao-symbol {
         width: 300px;
         height: 300px;
         font-size: 10rem;
+        margin: 0 auto;
       }
       
       .social-links a {
@@ -532,6 +550,10 @@
       
       .cta-content h2 {
         font-size: 2.2rem;
+      }
+      
+      .section-header {
+        margin-bottom: 3rem;
       }
     }
 
@@ -548,6 +570,17 @@
         width: 250px;
         height: 250px;
         font-size: 8rem;
+      }
+      
+      #hero {
+        padding: 7rem 1rem 3rem; /* Adjusted for very small screens */
+      }
+    }
+
+    /* Prevent section bleeding on very short screens */
+    @media (max-height: 600px) {
+      section {
+        min-height: 600px !important; /* Ensure minimum height */
       }
     }
   </style>
