@@ -3,15 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Whispers of YI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300;400;500&display=swap" rel="stylesheet">
+  <title>Whispers of YI · Daoist Wisdom</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --bg-color: #ffffff;
-      --text-color: #111111;
-      --subtle-text: #555555;
-      --link-color: #1a9a4d;
-      --accent-gray: #333333;
+      --bg-primary: #ffffff;
+      --bg-secondary: #fafafa;
+      --bg-tertiary: #f5f5f5;
+      --text-primary: #000000;
+      --text-secondary: #333333;
+      --text-muted: #666666;
+      --border-light: #e0e0e0;
+      --border-medium: #cccccc;
+      --accent-black: #000000;
+      --shadow-sharp: 0 8px 32px rgba(0, 0, 0, 0.1);
+      --shadow-subtle: 0 2px 16px rgba(0, 0, 0, 0.05);
     }
 
     * {
@@ -20,243 +27,617 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Noto Serif', serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
       font-weight: 300;
-      line-height: 1.8;
-      color: var(--text-color);
-      background: var(--bg-color);
     }
 
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 0 2rem;
-    }
-
-    .hero h1 {
-      font-family: 'Noto Serif', serif;
-      font-size: 5.5rem;
+    /* Sharp Typography */
+    h1, h2, h3 {
       font-weight: 400;
       letter-spacing: -0.5px;
-      line-height: 1.1;
-      margin-bottom: 0.5rem;
     }
 
-    .hero .subtitle {
+    /* Navigation */
+    #main-nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      z-index: 1000;
+      padding: 1rem 2rem;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
       font-size: 1.1rem;
-      font-style: italic;
+      transition: all 0.3s ease;
+      position: relative;
       font-weight: 300;
-      color: var(--subtle-text);
-      margin-bottom: 3rem;
-      letter-spacing: 0.3px;
     }
 
-    .hero p {
-      margin-top: 2rem;
-      font-size: 1.6rem;
-      font-weight: 300;
-      letter-spacing: 0.3px;
-      color: var(--subtle-text);
-      max-width: 800px;
-      line-height: 1.6;
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-primary);
     }
 
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--text-primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    /* Main Content */
     section {
-      max-width: 800px;
-      margin: 8rem auto;
-      padding: 0 2rem;
+      min-height: 100vh;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    section h2 {
-      font-family: 'Noto Serif', serif;
-      font-size: 2.2rem;
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Hero Section - White Background */
+    #hero {
+      background: var(--bg-primary);
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-content .hero-tagline {
+      font-size: 3.5rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      line-height: 1.2;
+      color: var(--text-primary);
+      font-style: italic;
+    }
+
+    .hero-content p {
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 4rem;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* Sharp CTA Button */
+    .cta-button {
+      display: inline-block;
+      padding: 1.2rem 3rem;
+      background: transparent;
+      color: var(--text-primary);
+      text-decoration: none;
+      border: 1px solid var(--border-medium);
+      border-radius: 0;
+      font-size: 1.1rem;
+      font-weight: 300;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--text-primary);
+      transition: left 0.4s ease;
+      z-index: -1;
+    }
+
+    .cta-button:hover {
+      color: var(--bg-primary);
+      border-color: var(--text-primary);
+    }
+
+    .cta-button:hover::before {
+      left: 0;
+    }
+
+    /* Features Section - All 3 in a row */
+    #features {
+      background: var(--bg-secondary);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .section-header h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 400;
+      color: var(--text-primary);
+    }
+
+    .section-header p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .feature-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-light);
+      padding: 3rem 2.5rem;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--text-primary);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-medium);
+      box-shadow: var(--shadow-sharp);
+    }
+
+    .feature-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--text-primary);
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      color: var(--text-primary);
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    /* About Section - Enlarged Yin Yang */
+    #about {
+      background: var(--bg-primary);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: 3rem;
       margin-bottom: 2rem;
       font-weight: 400;
-      line-height: 1.3;
-      color: var(--text-color);
+      color: var(--text-primary);
     }
 
-    section p {
-      font-size: 1.15rem;
-      margin-bottom: 1.5rem;
-      color: var(--subtle-text);
-      line-height: 1.7;
+    .about-text p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      line-height: 1.8;
     }
 
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    .about-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dao-symbol {
+      width: 500px;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15rem;
+      color: #000000;
+      opacity: 0.9;
+    }
+
+    /* CTA Section */
+    #cta {
+      background: var(--bg-secondary);
+      text-align: center;
+      display: flex;
+      align-items: center;
+    }
+
+    .cta-content h2 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      font-weight: 400;
+      color: var(--text-primary);
+    }
+
+    .cta-content p {
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .button-group {
+      display: flex;
       gap: 2rem;
-      margin: 3rem 0;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    .tool-card {
-      padding: 1.5rem;
-      border: 1px solid #e5e5e5;
-      background: #fafafa;
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border-medium);
+      color: var(--text-primary);
+    }
+
+    .btn-secondary:hover {
+      background: var(--text-primary);
+      color: var(--bg-primary);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-primary);
+      padding: 5rem 2rem 3rem;
+      text-align: center;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .social-links a {
+      color: var(--text-muted);
+      font-size: 2rem;
       transition: all 0.3s ease;
     }
 
-    .tool-card:hover {
-      background: #f5f5f5;
-      border-color: #d0d0d0;
+    .social-links a:hover {
+      color: var(--text-primary);
+      transform: translateY(-3px);
     }
 
-    .tool-card h3 {
-      font-size: 1.3rem;
-      font-weight: 400;
-      margin-bottom: 0.75rem;
-      color: var(--text-color);
+    .copyright {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
     }
 
-    .tool-card p {
-      font-size: 1rem;
-      color: var(--subtle-text);
-      margin-bottom: 0;
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .whisper {
-      text-align: center;
-      font-style: italic;
-      font-size: 1.2rem;
-      color: var(--subtle-text);
-      margin: 3rem 0;
-      padding: 2rem;
-      border-left: 3px solid #e5e5e5;
-      background: #fafafa;
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
     }
 
-    footer {
-      text-align: center;
-      font-size: 0.95rem;
-      padding: 4rem 2rem;
-      color: #888;
-      border-top: 1px solid #f0f0f0;
-      margin-top: 4rem;
-    }
-
-    a {
-      color: var(--link-color);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s ease;
-    }
-
-    a:hover {
-      border-bottom-color: var(--link-color);
-    }
-
-    .cta-section {
-      background: #f9f9f9;
-      padding: 3rem 2rem;
-      margin: 4rem -2rem;
-      text-align: center;
-      border-top: 1px solid #e5e5e5;
-      border-bottom: 1px solid #e5e5e5;
-    }
-
-    .cta-section h2 {
-      margin-bottom: 1rem;
-    }
-
-    .cta-section p {
-      max-width: 600px;
-      margin: 0 auto 2rem;
+    @media (max-width: 968px) {
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .dao-symbol {
+        width: 400px;
+        height: 400px;
+        font-size: 12rem;
+      }
+      
+      .hero-content .hero-tagline {
+        font-size: 2.8rem;
+      }
     }
 
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 3.5rem;
+      #main-nav {
+        padding: 1rem;
       }
-      .hero p {
-        font-size: 1.3rem;
+      
+      .nav-links {
+        gap: 2rem;
       }
-      section h2 {
+      
+      section {
+        padding: 6rem 1rem 2rem;
+      }
+      
+      .hero-content .hero-tagline {
+        font-size: 2.2rem;
+      }
+      
+      .section-header h2 {
+        font-size: 2.2rem;
+      }
+      
+      .button-group {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-button {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .feature-card {
+        padding: 2.5rem 2rem;
+      }
+      
+      .dao-symbol {
+        width: 300px;
+        height: 300px;
+        font-size: 10rem;
+      }
+      
+      .social-links a {
         font-size: 1.8rem;
-      }
-      section p {
-        font-size: 1.05rem;
-      }
-      .tools-grid {
-        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-
-  <header class="hero">
-    <h1>Whispers of YI</h1>
-    <div class="subtitle">Reflections on the quiet patterns of Dao</div>
-    <p>A space where BaZi becomes a mirror for life's seasons, elements, and the wisdom found in everyday moments.</p>
-  </header>
-
-  <section>
-    <h2>What Lives Here</h2>
-    <p>This is not a school of ancient wisdom, nor a library of rigid formulas. Here, the Four Pillars become companions rather than calculations, and your elemental nature reveals itself through the lens of lived experience.</p>
-    
-    <p>BaZi, in this space, is approached as a branch of Dao — a way of recognizing the natural rhythms already moving through your days, your relationships, your moments of growth and rest.</p>
-  </section>
-
-  <section>
-    <h2>Tools for the Journey</h2>
-    
-    <div class="tools-grid">
-      <div class="tool-card">
-        <h3>Day Master Calculator</h3>
-        <p>Discover your elemental nature through precise solar time correction and traditional calendar boundaries. More than calculation — a doorway to self-recognition.</p>
-      </div>
-      
-      <div class="tool-card">
-        <h3>Free Companions</h3>
-        <p>Ten gentle guides exploring stillness, elements, and natural rhythms. Each one an invitation to pause and notice what's already present.</p>
-      </div>
-      
-      <div class="tool-card">
-        <h3>Day Master Reflections</h3>
-        <p>Deep companions for each of the ten elemental natures — contemplative booklets that explore how ancient wisdom lives in modern days.</p>
+  <!-- Navigation -->
+  <nav id="main-nav">
+    <div class="nav-inner">
+      <a href="#hero" class="logo">Whispers of YI</a>
+      <div class="nav-links">
+        <a href="#hero" class="active">Home</a>
+        <a href="#features">Tools</a>
+        <a href="#about">Philosophy</a>
+        <a href="#cta">Begin</a>
       </div>
     </div>
-  </section>
+  </nav>
 
-  <div class="whisper">
-    "The flame flickers in wind, but never forgets it burns."
-  </div>
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="section-inner">
+        <div class="hero-content">
+          <div class="hero-tagline">Reflections on the quiet patterns of Dao</div>
+          <p>A space where BaZi becomes a mirror for life's seasons, elements, and the wisdom found in everyday moments.</p>
+          <a href="#features" class="cta-button">Explore the Wisdom</a>
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <h2>Why This Exists</h2>
-    <p>You don't need another guru.<br>
-    You don't need another textbook.<br>
-    You need a quiet voice that remembers:<br>
-    <em>The wisdom you seek is already walking with you.</em></p>
-    
-    <p>These tools and reflections exist to point you back to what you already know — that your life carries its own seasons, its own elements, its own perfect timing for growth and rest.</p>
-  </section>
+    <!-- Features Section -->
+    <section id="features">
+      <div class="section-inner">
+        <div class="section-header">
+          <h2>Tools for the Journey</h2>
+          <p>Discover the elemental wisdom that walks with you</p>
+        </div>
+        
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-calculator"></i></div>
+            <h3>Day Master Calculator</h3>
+            <p>Discover your elemental nature through precise solar time correction. More than calculation — a doorway to self-recognition.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+            <h3>Free Companions</h3>
+            <p>Ten gentle guides exploring stillness, elements, and natural rhythms. Each an invitation to pause and notice.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-feather"></i></div>
+            <h3>Day Master Reflections</h3>
+            <p>Deep companions for each elemental nature — contemplative booklets that explore ancient wisdom in modern days.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section class="cta-section">
-    <h2>Begin the Journey</h2>
-    <p>Start with the Day Master Calculator to discover your elemental nature, then explore the free companion guides that introduce the quiet wisdom of elements and seasons.</p>
-    
-    <p><a href="https://daymaster.streamlit.app/">Day Master Calculator</a> • <a href="https://whispersofyi.gumroad.com/">Free Guides & Booklets</a></p>
-  </section>
+    <!-- About Section -->
+    <section id="about">
+      <div class="section-inner">
+        <div class="about-content">
+          <div class="about-text">
+            <h2>Why This Exists</h2>
+            <p>You don't need another guru. You don't need another textbook. You need a quiet voice that remembers: <em>The wisdom you seek is already walking with you.</em></p>
+            <p>BaZi, in this space, is approached as a branch of Dao — a way of recognizing the natural rhythms already moving through your days, your relationships, your moments of growth and rest.</p>
+            <p>These tools exist to point you back to what you already know — that your life carries its own seasons, its own elements, its own perfect timing.</p>
+          </div>
+          <div class="about-image">
+            <div class="dao-symbol">☯</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <h2>Other Whispers</h2>
-    <p><strong>YouTube:</strong> <a href="https://www.youtube.com/@WhispersofYI">Daily reflections and elemental wisdom</a></p>
-    <p><strong>Deeper companions:</strong> <a href="https://whispersofyi.gumroad.com/">Complete Day Master series and seasonal guides</a></p>
-    <p><strong>Contact:</strong> For questions about tools or guides, reach through any of the above paths</p>
-  </section>
+    <!-- CTA Section -->
+    <section id="cta">
+      <div class="section-inner">
+        <div class="cta-content">
+          <h2>Begin Your Journey</hh2>
+          <p>Start with the Day Master Calculator to discover your elemental nature, then explore the free companion guides that introduce the quiet wisdom of elements and seasons.</p>
+          <div class="button-group">
+            <a href="https://daymaster.streamlit.app/" class="cta-button">Day Master Calculator</a>
+            <a href="https://whispersofyi.gumroad.com/" class="cta-button btn-secondary">Free Guides</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Whispers of YI</p>
-    <p>Code under MIT License • Guides under Creative Commons</p>
-    <p><em>What is quiet is never absent</em></p>
+    <div class="social-links">
+      <a href="https://www.youtube.com/@WhispersofYI"><i class="fab fa-youtube"></i></a>
+      <a href="https://whispersofyi.gumroad.com/"><i class="fas fa-book"></i></a>
+      <a href="#"><i class="fas fa-envelope"></i></a>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 Whispers of YI. Code under MIT License • Guides under Creative Commons</p>
+      <p><em>What is quiet is never absent</em></p>
+    </div>
   </footer>
 
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Active navigation highlighting
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-links a');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= (sectionTop - 100)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Fade in animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Observe elements for animation
+    document.querySelectorAll('.feature-card, .about-text, .cta-content').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'all 0.6s ease';
+      observer.observe(el);
+    });
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('main-nav');
+      if (window.scrollY > 100) {
+        nav.style.background = 'rgba(255, 255, 255, 0.98)';
+        nav.style.backdropFilter = 'blur(20px)';
+      } else {
+        nav.style.background = 'rgba(255, 255, 255, 0.95)';
+      }
+    });
+  </script>
 </body>
 </html>
